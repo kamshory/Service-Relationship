@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biller Services Relationsip</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="code.css">
+    <script src="services.js"></script>
+    <script src="message-specs.js"></script>
+    <script src="script.js"></script>
+    <script src="iso8583.js"></script>
+    <script src="vkbeautify.js"></script>
+</head>
+<body>
+    <div class="all">
+        <h1>Services Relationship</h1>
+
+        <div class="row four-col">
+            <div class="control-wrapper">
+                <div class="label">Object Width <span class="value"></span></div>
+                <div class="control"><input type="range" id="object_width" min="100" max="200" step="1"></div>
+            </div>
+            <div class="control-wrapper">
+                <div class="label">Object Height <span class="value"></span></div>
+                <div class="control"><input type="range" id="object_height" min="30" max="100" step="1"></div>
+            </div>
+            <div class="control-wrapper">
+                <div class="label">Horizontal Space <span class="value"></span></div>
+                <div class="control"><input type="range" id="margin_width" min="10" max="100" step="1"></div>
+            </div>
+            <div class="control-wrapper">
+                <div class="label">Vertical Space <span class="value"></span></div>
+                <div class="control"><input type="range" id="margin_height" min="10" max="100" step="1"></div>
+            </div>
+        </div> 
+        <div class="input-wrapper">
+            <label for="showservicerelation"><input type="checkbox" name="showservicerelation" id="showservicerelation"> Show Service Relation</label>
+            <label for="showdatabase"><input type="checkbox" name="showdatabase" id="showdatabase"> Show Database</label>
+            <label for="showredis"><input type="checkbox" name="showredis" id="showredis"> Show Redis</label>
+            <label for="jsonprettify"><input type="checkbox" name="jsonprettify" id="jsonprettify"> JSON Prettify</label>
+            <label for="xmlprettify"><input type="checkbox" name="xmlprettify" id="xmlprettify"> XML Prettify</label>
+            <label for="autoclosedesc"><input type="checkbox" name="autoclosedesc" id="autoclosedesc"> Autoclose Description on Mouseout</label>
+        </div>
+
+        <div id="svg1"></div>
+
+        
+
+        
+
+    </div>
+    
+    <div id="desc">
+        <div class="desc-wrapper">
+            <div class="desc-pointer desc-pointer-top"></div>
+            <div class="desc-title">
+                <div class="close-desc"><a href="javascript:closeDesc();"><div class="button-close"></div></a></div>
+                <span id="desc-title"></span>
+            </div>
+            <div id="desc-container">
+            </div>   
+            <div class="desc-pointer desc-pointer-bottom"></div>    
+        </div>
+    </div>
+</body>
+</html>

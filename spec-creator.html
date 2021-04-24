@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specs Creator</title>
+    <style>
+        input[type="text"]{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px 10px;
+        }
+        textarea{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function replaceAll(input, searchStr, replaceStr)
+        {
+            return input.split(searchStr).join(replaceStr);
+        }
+        function normalize(input)
+        {
+            input = replaceAll(input, '\n', '\r\n');
+            input = replaceAll(input, '\r\r\n', '\r\n');
+            input = replaceAll(input, '\r', '\r\n');
+            input = replaceAll(input, '\r\n\n', '\r\n');
+            return input;
+        }
+        function removeContentLength(headers)
+        {
+            var hdr = [];
+            for(var i = 0; i<headers.length; i++)
+            {
+                if(headers[i].toLowerCase().indexOf('content-length:') == -1)
+                {
+                    hdr.push(headers[i]);
+                }
+            }
+            return hdr;
+        }
+        function getHeaderValue(headers, key)
+        {
+            var value = "";
+            for(var i = 0; i<headers.length; i++)
+            {
+                if(headers[i].toLowerCase().indexOf(key.toLowerCase()+":") == 0)
+                {
+                    var arr = headers[i].split(': ', 2);
+                    return arr[1];
+                }
+            }
+            return '';
+        }
+        function generate()
+        {
+            var ssl = document.querySelector('#ssl').value=="1";
+            var label = document.querySelector('#label').value;
+            var request = document.querySelector('#request').value;
+            request = normalize(request);
+            var arr = request.split('\r\n\r\n', 2);
+            var headersOri = arr[0].split('\r\n');
+            var request_header = JSON.parse(JSON.stringify(headersOri));
+            request_header = removeContentLength(request_header);
+            request_header.shift();
+            var host = getHeaderValue(request_header, 'Host');
+            if(ssl)
+            {
+                port = 443;
+            }
+            else
+            {
+                port = 80;
+            }
+            if(host.length > 0 && host.indexOf(':') != -1)
+            {
+                var arr3 = host.split(':', 2);
+                port = arr3[1];
+            }
+
+            var firstHeader = headersOri[0];
+            var arr2 = firstHeader.split(' ', 3);
+            var method = arr2[0];
+            var path = arr2[1];
+
+
+            var request_body = '';
+            if(arr.length > 1 && (method == 'POST' || method == 'PUT'))
+            {
+                request_body = arr[1];
+            }
+            
+
+            
+            var response = document.querySelector('#response').value;
+            response = normalize(response);
+            var arr = response.split('\r\n\r\n', 2);
+            var headersOri = arr[0].split('\r\n');
+            var response_header = JSON.parse(JSON.stringify(headersOri));
+            response_header = removeContentLength(response_header);
+            response_header.shift();
+
+            var firstHeader = headersOri[0];
+            var arr2 = firstHeader.split(' ', 3);
+       
+
+            var response_body = '';
+            if(arr.length > 1 && (method == 'POST' || method == 'PUT'))
+            {
+                response_body = arr[1];
+            }
+            var spec = {
+                label:label,
+                ssl:ssl,
+                host:host,
+                port:port,
+                path:path,
+                method:method,
+                request_header:request_header,
+                request_body:request_body,
+                response_header:response_header,
+                response_body:response_body
+            }
+            var result = JSON.stringify(spec, undefined, 4);
+            document.querySelector('#output').value = result;
+
+        }
+    </script>
+</head>
+<body>
+    <div class="input-wrapper">
+        <h3>Label</h3>
+        <input type="text" name="label" id="label">
+    </div>
+    <div class="input-wrapper">
+        <h3>SSL</h3>
+        <select name="ssl" id="ssl"><option value="0">No</option><option value="1">Yes</option></select>
+    </div>
+    <div class="input-wrapper">
+        <h3>Rquest</h3>
+        <textarea name="request" id="request" rows="10"></textarea> 
+    </div>
+    <div class="input-wrapper">
+        <h3>Response</h3>
+        <textarea name="response" id="response" rows="10"></textarea>    
+    </div>
+    <div class="input-wrapper">
+        <input type="button" value="Generate" onclick="generate()">
+    </div>
+    <div class="output-wrapper">
+        <h3>Output</h3>
+        <textarea name="output" id="output" rows="10"></textarea>    
+    </div>
+</body>
+</html>

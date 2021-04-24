@@ -1,0 +1,244 @@
+
+
+body {
+	counter-reset: a b;
+}
+
+.prism *,.token.pre.gfm * {
+	font-weight: inherit!important;
+}
+
+.prism .token.cdata,.prism .token.comment,.prism .token.doctype,.prism .token.prolog,.token.pre.gfm .token.cdata,.token.pre.gfm .token.comment,.token.pre.gfm .token.doctype,.token.pre.gfm .token.prolog {
+	color: #708090;
+}
+
+.prism .token.punctuation,.token.pre.gfm .token.punctuation {
+	color: #999;
+}
+
+.prism .namespace,.token.pre.gfm .namespace {
+	opacity: .7;
+}
+
+.prism .token.boolean,.prism .token.constant,.prism .token.deleted,.prism .token.number,.prism .token.property,.prism .token.symbol,.prism .token.tag,.token.pre.gfm .token.boolean,.token.pre.gfm .token.constant,.token.pre.gfm .token.deleted,.token.pre.gfm .token.number,.token.pre.gfm .token.property,.token.pre.gfm .token.symbol,.token.pre.gfm .token.tag {
+	color: #905;
+}
+
+.prism .token.attr-name,.prism .token.builtin,.prism .token.char,.prism .token.inserted,.prism .token.selector,.prism .token.string,.token.pre.gfm .token.attr-name,.token.pre.gfm .token.builtin,.token.pre.gfm .token.char,.token.pre.gfm .token.inserted,.token.pre.gfm .token.selector,.token.pre.gfm .token.string {
+	color: #690;
+}
+
+.prism .language-css .token.string,.prism .style .token.string,.prism .token.entity,.prism .token.operator,.prism .token.url,.token.pre.gfm .language-css .token.string,.token.pre.gfm .style .token.string,.token.pre.gfm .token.entity,.token.pre.gfm .token.operator,.token.pre.gfm .token.url {
+	color: #a67f59;
+}
+
+.prism .token.atrule,.prism .token.attr-value,.prism .token.keyword,.token.pre.gfm .token.atrule,.token.pre.gfm .token.attr-value,.token.pre.gfm .token.keyword {
+	color: #07a;
+}
+
+.prism .token.function,.token.pre.gfm .token.function {
+	color: #dd4a68;
+}
+
+.prism .token.important,.prism .token.regex,.prism .token.variable,.token.pre.gfm .token.important,.token.pre.gfm .token.regex,.token.pre.gfm .token.variable {
+	color: #e90;
+}
+
+.prism .token.bold,.prism .token.important,.token.pre.gfm .token.bold,.token.pre.gfm .token.important {
+	font-weight: 500;
+}
+
+.prism .token.italic,.token.pre.gfm .token.italic {
+	font-style: italic;
+}
+
+pre {
+	font-family: monospace,monospace;
+	font-size: 1em;
+}
+
+a {
+	-webkit-text-decoration-skip: objects;
+}
+
+abbr[title] {
+	border-bottom: none;
+	text-decoration: underline;
+	text-decoration: underline dotted;
+}
+
+b,strong {
+	font-weight: inherit;
+	font-weight: bolder;
+}
+
+code,kbd,samp {
+	font-family: monospace,monospace;
+	font-size: 1em;
+}
+
+dfn {
+	font-style: italic;
+}
+
+mark {
+	background-color: #ff0;
+	color: #000;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -.25em;
+}
+
+sup {
+	top: -.5em;
+}
+
+audio,video {
+	display: inline-block;
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
+progress {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+details {
+	display: block;
+}
+
+summary {
+	display: list-item;
+}
+
+menu {
+	display: block;
+}
+
+[hidden],template {
+	display: none;
+}
+
+.app--dark .layout__panel--editor,.app--dark .layout__panel--preview {
+	color: hsla(0,0%,100%,.75);
+}
+
+
+code,pre,samp {
+	font-family: Roboto Mono,Lucida Sans Typewriter,Lucida Console,monaco,Courrier,monospace;
+	font-size: .85em;
+}
+
+code *,pre *,samp * {
+	font-size: inherit;
+}
+
+
+.app--dark .layout__panel--editor blockquote,.app--dark .layout__panel--preview blockquote {
+	color: hsla(0,0%,100%,.4);
+	border-left-color: hsla(0,0%,100%,.1);
+}
+
+code {
+	background-color: rgba(0,0,0,.05);
+	border-radius: 3px;
+	padding: 2px 4px;
+    line-height: 1.45;
+    font-size: 13px;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid hsla(0,0%,50%,.33);
+	margin: 2em 0;
+}
+
+pre>code {
+	background-color: rgba(0,0,0,.05);
+	display: block;
+	padding: 20px;
+	-webkit-text-size-adjust: none;
+	overflow-x: auto;
+	white-space: pre;
+}
+
+.toc ul {
+	list-style-type: none;
+	padding-left: 20px;
+}
+
+mark {
+	background-color: #f8f840;
+}
+
+kbd {
+	font-family: Lato,Helvetica Neue,Helvetica,sans-serif;
+	background-color: #fff;
+	border: 1px solid rgba(63,63,63,.25);
+	border-radius: 3px;
+	box-shadow: 0 1px 0 rgba(63,63,63,.25);
+	color: #333;
+	display: inline-block;
+	font-size: .8em;
+	margin: 0 .1em;
+	padding: .1em .6em;
+	white-space: nowrap;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted #777;
+	cursor: help;
+}
+
+img {
+	max-width: 100%;
+}
+
+.task-list-item {
+	list-style-type: none;
+}
+
+.task-list-item-checkbox {
+	margin: 0 .2em 0 -1.3em;
+}
+
+.footnote {
+	font-size: .8em;
+	position: relative;
+	top: -.25em;
+	vertical-align: top;
+}
+
+.page-break-after {
+	page-break-after: always;
+}
+
+.abc-notation-block {
+	overflow-x: auto!important;
+}
+
